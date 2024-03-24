@@ -8,7 +8,7 @@ import "./styles/submit.css";
 type Props = {
   children: React.ReactNode;
   className?: string;
-  formAction?: (formData: FormData | any) => Promise<void>;
+  formAction?: (formData: FormData | any) => Promise<void | null>;
 };
 
 export default function Submit({ children, className, formAction }: Props) {

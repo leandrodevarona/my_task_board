@@ -24,7 +24,7 @@
 }
 
 .task_item.WONT_DO {
-    background-color: var(--bone);
+    background-color: var(--ligth-red);
 }
 
 .task_item__icon {

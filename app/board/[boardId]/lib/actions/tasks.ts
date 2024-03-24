@@ -6,21 +6,11 @@ import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient();
 
-export async function createAction(boardId: number, formData: FormData) {
-    const name = formData.get('name')?.toString() || null;
-    const description = formData.get("description")?.toString() || null;
-    const icon = formData.get("icon")?.toString() as TaskIcon || undefined;
-    const status = formData.get("status")?.toString() as TaskStatus || undefined;
-
-    if (!name) return null;
-
+export async function createAction(boardId: number) {
     try {
+        // La creación es solo con los datos por defecto
         await prisma.task.create({
             data: {
-                name,
-                description,
-                icon,
-                status,
                 taskBoardId: boardId
             }
         });

@@ -1,7 +1,7 @@
 import Header from "./components/Header";
-import TaskDetails from "./components/TaskDetails";
 import TaskList from "./components/TaskList";
 import { getTaskBoardById } from "./lib/data/data";
+
 import styles from "./page.module.css";
 
 type Props = {
@@ -22,9 +22,8 @@ export default async function TaskBoardPage({ params: { boardId } }: Props) {
           boardName={board.name}
           boardDescription={board.description}
         />
-        <TaskList tasks={board.tasks} />
+        <TaskList boardId={board.id} tasks={board.tasks} />
       </div>
-      <TaskDetails boardId={board.id} />
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { createAction, deleteAction, updateAction } from "../lib/actions/tasks";
+import { deleteAction, updateAction } from "../lib/actions/tasks";
 import Submit from "./common/Submit";
 import IconSelector from "./IconSelector";
 import StatusSelector from "./StatusSelector";
@@ -14,42 +14,30 @@ const prisma = new PrismaClient();
 
 type Props = {
   boardId: number;
-  taskId?: number;
+  taskId: number;
 };
 
 export default async function TaskDetails({ boardId, taskId }: Props) {
-  const action = !!taskId
-    ? updateAction.bind(null, boardId, taskId)
-    : createAction.bind(null, boardId);
+  const updateTask = updateAction.bind(null, boardId, taskId);
+  const deleteTask = deleteAction.bind(null, boardId, taskId);
 
-  const deleteTask = async () => {
-    "use server";
-
-    if (taskId) await deleteAction(boardId, taskId);
-  };
-
-  const task = !!taskId
-    ? await prisma.task.findUnique({
-        where: {
-          id: taskId,
-        },
-      })
-    : null;
+  const task = await prisma.task.findUnique({
+    where: {
+      id: taskId,
+    },
+  });
 
   return (
-    <dialog
-      id={!!taskId ? "update_task" : "task_details"}
-      className="task_details"
-    >
-      {!!taskId && <DetailsOpener open />}
+    <dialog id="update_task" className="task_details">
+      <DetailsOpener open />
       <div className="task_details__content">
         <header>
           <h5>Task details</h5>
           <form method="dialog">
-            <CloseDetails withBack={!!taskId} />
+            <CloseDetails />
           </form>
         </header>
-        <form className="task_details__form" action={action}>
+        <form className="task_details__form" action={updateTask}>
           <label className="details_form__label">
             Task name
             <input type="text" name="name" defaultValue={task?.name} required />
@@ -71,12 +59,10 @@ export default async function TaskDetails({ boardId, taskId }: Props) {
             <StatusSelector defaultChecked={task?.status} />
           </div>
           <div className="task_details__actions">
-            {!!taskId && (
-              <Submit className="task_delete__btn" formAction={deleteTask}>
-                <span>Delete</span>
-                <Trash />
-              </Submit>
-            )}
+            <Submit className="task_delete__btn" formAction={deleteTask}>
+              <span>Delete</span>
+              <Trash />
+            </Submit>
             <Submit className="task_save__btn">
               <span>Save</span>
               <DoneRound />

@@ -53,3 +53,7 @@
 .status_selector label input:checked {
     display: block;
 }
+
+.status_selector__item input:checked {
+    border: 2px solid var(--blue);
+}

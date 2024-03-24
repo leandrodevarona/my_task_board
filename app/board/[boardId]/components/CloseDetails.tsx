@@ -5,15 +5,11 @@ import CloseRingDuotone from "./assets/icons/CloseRingDuotone";
 
 import "./styles/closeDetails.css";
 
-type Props = {
-  withBack: boolean;
-};
-
-export default function CloseDetails({ withBack }: Props) {
+export default function CloseDetails() {
   const { back } = useRouter();
 
   const handleOnClick = () => {
-    if (withBack) back();
+    back();
   };
 
   return (

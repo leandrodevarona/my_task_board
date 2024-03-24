@@ -32,7 +32,7 @@ enum TaskIcon {
 model Task {
   id Int @id @default(autoincrement())
 
-  name        String      @default("Task in Progress")
+  name        String      @default("Task To Do")
   description String?
   icon        TaskIcon?   @default(WORK)
   status      TaskStatus? @default(TODO)
