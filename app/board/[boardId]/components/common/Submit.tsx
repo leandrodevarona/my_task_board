@@ -19,6 +19,7 @@ export default function Submit({ children, className, formAction }: Props) {
       className={`submit ${className || ""}`}
       type="submit"
       formAction={formAction}
+      disabled={pending}
     >
       {children}
       {pending && <Spinner />}
