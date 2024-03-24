@@ -14,7 +14,7 @@ export default function TaskItem({ task }: Props) {
     <li className={`task_item ${task.status}`}>
       <Link href={`/board/${task.taskBoardId}/task/${task.id}`}>
         <div className="task_item__icon">{task.icon && Icons[task.icon]}</div>
-        <div>
+        <div className="task_item__content">
           <span className="task_item__title">{task.name}</span>
           <p className="task_item__description">{task.description}</p>
         </div>

@@ -7,7 +7,7 @@
 
 .task_item a {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
 }
 
@@ -33,12 +33,18 @@
     border-radius: 10px;
 }
 
+.task_item__content {
+    padding: 0.5rem 0;
+}
+
 .task_item__title {
     font-weight: 600;
     font-size: 18px;
 }
 
 .task_item__description {
+    max-width: 290px;
+
     font-weight: 300;
     font-size: 14px;
 }
