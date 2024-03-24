@@ -13,7 +13,11 @@ export default function StatusSelector({ defaultChecked }: Props) {
       {Object.entries(Status).map((object, index) => {
         const [key, value] = object;
         return (
-          <li key={index} className={`status_selector__item ${key}`}>
+          <li
+            key={index}
+            className={`status_selector__item ${key}`}
+            tabIndex={-1}
+          >
             <label>
               <div className={`status_icon ${key}`}>{value.icon}</div>
               <span>{value.text}</span>

@@ -15,6 +15,10 @@
     border: 2px solid var(--ligth-grey);
 }
 
+.status_selector__item:focus {
+    border-color: var(--blue);
+}
+
 .status_icon {
     display: flex;
     align-items: center;

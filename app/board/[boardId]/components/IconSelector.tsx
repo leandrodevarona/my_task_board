@@ -13,7 +13,7 @@ export default function IconSelector({ defaultChecked }: Props) {
       {Object.entries(Icons).map((object, index) => {
         const [key, value] = object;
         return (
-          <li key={index}>
+          <li key={index} tabIndex={-1}>
             <label>
               {value}
               <input

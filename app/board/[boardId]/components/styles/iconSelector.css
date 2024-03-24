@@ -12,6 +12,10 @@
     border-radius: 10px;
 }
 
+.icon_selector li:focus {
+    background-color: var(--ligth-orange);
+}
+
 .icon_selector input {
     display: none;
 }
