@@ -1,0 +1,96 @@
+.task_details {
+    width: 90%;
+    height: 95vh;
+    max-width: 640px;
+
+    border: none;
+    border-radius: 10px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 1rem;
+}
+
+.task_details__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.task_details header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+}
+
+.task_details header h5 {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.details_form__label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    margin-bottom: 0.5rem;
+
+    font-weight: 500;
+    font-size: 12px;
+    color: #00000056;
+}
+
+.task_details__form input,
+.task_details__form textarea {
+    padding: 0.5rem;
+
+    border-radius: 8px;
+    border: 2px solid var(--ligth-grey);
+}
+
+.task_details__form textarea {
+    resize: vertical;
+    min-height: 200px;
+    max-height: 300px;
+}
+
+.task_details__actions {
+    margin-left: auto;
+    margin-top: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task_details__actions button {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 15px;
+    color: var(--white);
+}
+
+.task_delete__btn {
+    background-color: var(--grey);
+}
+
+.task_save__btn {
+    background-color: var(--blue);
+}
+
+@media(min-width: 720px) {
+    .task_details {
+        top: 50%;
+        left: auto;
+        right: 1rem;
+        transform: translateY(-50%);
+    }
+}

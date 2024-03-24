@@ -1,0 +1,55 @@
+.status_selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.status_selector__item {
+    list-style: none;
+
+    padding: 0.2rem;
+    padding-right: 0.7rem;
+
+    border-radius: 15px;
+    border: 2px solid var(--ligth-grey);
+}
+
+.status_icon {
+    display: flex;
+    align-items: center;
+
+    padding: 0.7rem;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.status_icon.IN_PROGRESS {
+    background-color: var(--orange);
+}
+
+.status_icon.COMPLETED {
+    background-color: var(--green);
+}
+
+.status_icon.WONT_DO {
+    background-color: var(--red);
+}
+
+.status_selector label {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.status_selector label input {
+    display: none;
+    margin-left: auto;
+}
+
+.status_selector label input:checked {
+    display: block;
+}

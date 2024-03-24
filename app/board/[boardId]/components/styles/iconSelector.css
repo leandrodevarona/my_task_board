@@ -1,0 +1,21 @@
+.icon_selector {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.icon_selector li {
+    list-style: none;
+
+    padding: 0.7rem;
+    background-color: var(--ligth-grey);
+    border-radius: 10px;
+}
+
+.icon_selector input {
+    display: none;
+}
+
+.icon_selector input[type="radio"]:checked {
+    background-color: var(--ligth-orange);
+}
