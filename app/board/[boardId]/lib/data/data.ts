@@ -9,7 +9,11 @@ export async function getTaskBoardById(id: number) {
                 id
             },
             include: {
-                tasks: true
+                tasks: {
+                    orderBy: {
+                        id: "asc"
+                    }
+                }
             }
         });
 
